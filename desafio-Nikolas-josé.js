@@ -2,40 +2,40 @@
 
   function calcularValorTotal(itens, formaPagamento) {
     if (itens.length === 0) {
-      return 'Não há itens no carrinho de compra';
+      return 'Não há itens no carrinho de compra'
     }
   
-    let valorTotal = 0;
+    let valorTotal = 0
     
     for (var item of itens) {
-      var cardapioItem = cardapio.find(entry => entry.codigo === item.codigo);
+      var cardapioItem = cardapio.find(entry => entry.codigo === item.codigo)
       
       if (!cardapioItem) {
-        return 'Item inválido!';
+        return 'Item inválido!'
       }
   
-      valorTotal += cardapioItem.valor;
+      valorTotal += cardapioItem.valor
   
       if (item.codigo !== 'chantily' && item.codigo !== 'queijo') {
         for (var extra of item.extras || []) {
-          var extraItem = cardapio.find(entry => entry.codigo === extra);
+          var extraItem = cardapio.find(entry => entry.codigo === extra)
           if (!extraItem) {
-            return 'Item extra não pode ser pedido sem o principal';
+            return 'Item extra não pode ser pedido sem o principal'
           }
-          valorTotal += extraItem.valor;
+          valorTotal += extraItem.valor
         }
       }
     }
   
     if (formaPagamento === 'dinheiro') {
-      valorTotal *= 0.95; 
+      valorTotal *= 0.95
     } else if (formaPagamento === 'credito') {
-      valorTotal *= 1.03;   
+      valorTotal *= 1.03   
     } else if (formaPagamento !== 'debito') {
-      return 'Forma de pagamento inválida!';
+      return 'Forma de pagamento inválida!'
     }
   
-    return valorTotal.toFixed(2);
+    return valorTotal.toFixed(2)
   }
   
   var cardapio = [
@@ -51,13 +51,12 @@
   
   var itensCompra = [
     { codigo: 'cafe' },
-    
     { codigo: 'combo1' }
   ];
-  var formaPagamento = 'debito';
+  var formaPagamento = 'dinheiro'
   
   
-  var valorTotal = calcularValorTotal(itensCompra, formaPagamento);
-  console.log(`Valor total da compra: R$ ${valorTotal}`);
+  var valorTotal = calcularValorTotal(itensCompra, formaPagamento)
+  console.log(`Valor total da compra: R$ ${valorTotal}`)
 
   
