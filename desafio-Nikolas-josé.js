@@ -47,14 +47,13 @@
     { codigo: 'salgado', descricao: 'Salgado', valor: 7.25 },
     { codigo: 'combo1', descricao: '1 Suco e 1 Sanduíche', valor: 9.50 },
     { codigo: 'combo2', descricao: '1 Café e 1 Sanduíche', valor: 7.50 }
-  ];
-  
+  ]
+
   var itensCompra = [
     { codigo: 'cafe' },
     { codigo: 'combo1' }
-  ];
+  ]
   var formaPagamento = 'dinheiro'
-  
   
   var valorTotal = calcularValorTotal(itensCompra, formaPagamento)
   console.log(`Valor total da compra: R$ ${valorTotal}`)
