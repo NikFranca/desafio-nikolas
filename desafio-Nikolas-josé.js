@@ -28,9 +28,9 @@
     }
   
     if (formaPagamento === 'dinheiro') {
-      valorTotal *= 0.97
+      valorTotal *= 0.95
     } else if (formaPagamento === 'credito') {
-      valorTotal *= 1.05  
+      valorTotal *= 1.03  
     } else if (formaPagamento !== 'debito') {
       return 'Forma de pagamento inválida!'
     }
